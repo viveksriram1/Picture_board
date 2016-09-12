@@ -1,0 +1,19 @@
+.col-md-6.col-md-offset-3
+  .panel.panel-default
+    .panel-heading
+      %h2.text-center Sign up
+    .panel-body
+      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = f.error_notification
+        .form_group
+          = f.input :email, required: true, autofocus: true
+        .form_group
+          = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
+        .form_group
+          = f.input :password_confirmation, required: true
+          = f.button :submit, "Sign up"
+    .panel-footer
+      .row
+        .col-md-6
+          .btn-group
+            = render "devise/shared/links"
